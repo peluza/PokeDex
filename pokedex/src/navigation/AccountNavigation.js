@@ -8,7 +8,7 @@ export default function AccountNavigation() {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="Account"
+                name="account"
                 component={AccountScreen}
                 options={{ title: "Mi Cuenta" }}
             />
