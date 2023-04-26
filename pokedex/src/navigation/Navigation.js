@@ -14,21 +14,24 @@ export default function Navigation() {
         tabBarLabel: "Favoritos",
         tabBarIcon: ({ color, size }) => (
           <Icon name="heart" color={color} size={size} />
-        )
+        ),
+        title: "Favoritos",
       }
       } />
       <Tab.Screen name="PokeDex" component={PokedexNavigation} options={
         {
           tabBarLabel: "",
-          tabBarIcon: () => renderPokeBall()
-          
+          tabBarIcon: () => renderPokeBall(),
+          title: "",
+          headerTransparent: true
         }
       } />
       <Tab.Screen name="Account" component={AccountNavigation} options={{
         tabBarLabel: "Mi Cuenta",
         tabBarIcon: ({ color, size }) => (
           <Icon name="user" color={color} size={size} />
-        )
+        ),
+        title: "Mi Cuenta"
       }} />
     </Tab.Navigator>
 

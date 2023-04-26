@@ -14,7 +14,7 @@ export default function Pokemon(props) {
   useEffect(() => {
     navigation.setOptions({
       headerRigth: () => null,
-      headerLeft: () => <Icon name="arrow-left" color="#fff" size={20} style={{marginLeft: 20}} onPress={navigation.goBack} />
+      headerLeft: () => <Icon name="arrow-left" color="#fff" size={20} style={{marginLeft: 20, marginTop: 30}} onPress={navigation.goBack} />
     })
   }, [navigation, params])
 
