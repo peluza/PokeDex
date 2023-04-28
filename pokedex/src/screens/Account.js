@@ -10,7 +10,6 @@ export default function Account() {
   return (
     <View>
       {auth ? <UserData /> : <LoginForm />}
-      <Text>Account</Text>
     </View>
   )
 }
