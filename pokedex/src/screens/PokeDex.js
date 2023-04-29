@@ -6,7 +6,7 @@ import PokemonList from '../components/PokemonList';
 export default function PokeDex() {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
-  console.log("pokemons--->", pokemons);
+
   useEffect(() =>{
     (async () => {
       await loadPokemons()
