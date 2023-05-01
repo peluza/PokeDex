@@ -13,6 +13,7 @@ export default function Header(props) {
 
     return (
         <>
+        <View>
             <View  style={bgStyles}/>
             <SafeAreaView style={styles.content}>
                 <View style={styles.header}>
@@ -23,6 +24,7 @@ export default function Header(props) {
                     <Image source={{ uri: image}} style={styles.image} />
                 </View>
             </SafeAreaView>
+            </View>
         </>
     )
 }

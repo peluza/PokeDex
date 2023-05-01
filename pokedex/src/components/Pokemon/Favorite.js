@@ -9,10 +9,10 @@ export default function Favorite(props) {
   return (
     <Icon 
         name="heart" 
-        color="#ffff" 
+        color="#ffff"
         size={20} 
         onPress={addFavorite} 
-        style={{ marginRight: 20, marginTop: 30 }}
+        style={{ marginLeft: 280, marginTop: 100 }}
     />
   )
 }

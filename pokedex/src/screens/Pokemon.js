@@ -1,4 +1,4 @@
-import { ScrollView } from 'react-native'
+import { ScrollView, View, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { getPokemonDetailsApi } from '../api/pokemon'
 import Header from '../components/Pokemon/Header'
@@ -13,18 +13,23 @@ export default function Pokemon(props) {
   const [pokemon, setPokemon] = useState(null)
   const { auth } = useAuth()
 
+  console.log(pokemon)
+  const bgStyles = { backgroundColor: params.color, ...styles.bgStyles }
+
   useEffect(() => {
     navigation.setOptions({
-      headerRight: () => auth && <Favorite id={params.id}/>,
-      headerLeft: () => (
-        <Icon
-          name="arrow-left"
-          color="#fff"
-          size={20}
-          style={{ marginLeft: 20, marginTop: 30 }}
-          onPress={navigation.goBack}
-        />
-      ),
+      // headerRight: () => auth && <Favorite id={params.id}/>,
+      // headerLeft: () => (
+      //   <Icon
+      //     name="arrow-left"
+      //     color="#fff"
+      //     size={20}
+      //     style={{ marginLeft: 20, marginTop: 30 }}
+      //     onPress={navigation.goBack}
+      //   />
+      // ),
+      headerRight: () => null,
+      headerLeft: () => null,
     })
   }, [navigation, params])
 
@@ -43,13 +48,32 @@ export default function Pokemon(props) {
   if (!pokemon) return null
   return (
     <ScrollView>
-      <Header 
-      name={pokemon.name} 
-      order={pokemon.order} 
-      image={pokemon.sprites.other["official-artwork"].front_default}
-      type={pokemon.types[0].type.name} />
+      <View style={bgStyles}>
+        <Icon
+          name="arrow-left"
+          color="#ffff"
+          size={20}
+          style={{ marginLeft: 20, marginTop: 100 }}
+          onPress={navigation.goBack}
+        />
+        {auth && <Favorite id={params.id} />}
+      </View>
+      <Header
+        name={pokemon.name}
+        order={pokemon.order}
+        image={pokemon.sprites.other["official-artwork"].front_default}
+        type={pokemon.types[0].type.name} />
+
       <Type types={pokemon.types} />
-      <Stats  stats={pokemon.stats}/>
+      <Stats stats={pokemon.stats} />
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  bgStyles: {
+    flexDirection: "row", 
+    paddingVertical: 5, 
+    alignItems: "center",
+  }
+})
