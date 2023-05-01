@@ -6,12 +6,12 @@ export default function NoLogged() {
 
     const navigation = useNavigation()
 
-  return (
-    <View style={styles.content}>
-      <Text style={styles.text}>PAra ver esta pantalla tines que iniciar sesión</Text>
-      <Button title='Ir a login' onPress={()=>navigation.navigate("Account")} />
-    </View>
-  )
+    return (
+        <View style={styles.content}>
+            <Text style={styles.text}>Para ver esta pantalla tines que iniciar sesión</Text>
+            <Button title='Ir a login' onPress={() => navigation.navigate("Account")} />
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -23,5 +23,4 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginBottom: 10
     }
-
 })
