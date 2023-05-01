@@ -5,6 +5,7 @@ import { getPokemonsFavoriteApi } from '../api/favorite'
 import useAuth from '../hooks/useAuth'
 import { getPokemonDetailsApi } from '../api/pokemon'
 import PokemonList from '../components/PokemonList'
+import NoLogged from '../components/Pokemon/NoLogged'
 
 
 
@@ -40,7 +41,7 @@ export default function Favorite() {
 
   return (
     !auth ? (
-      <Text>Usurio no logueado</Text>
+      <NoLogged />
     ) : (
       <PokemonList pokemons={pokemons} />
     )
