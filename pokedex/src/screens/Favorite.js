@@ -13,7 +13,8 @@ export default function Favorite() {
   const [pokemons, setPokemons] = useState([])
   const { auth } = useAuth()
 
-  useFocusEffect(useCallback(() => {
+  useFocusEffect(
+    useCallback(() => {
       if (auth) {
         (async () => {
           const response = await getPokemonsFavoriteApi()
