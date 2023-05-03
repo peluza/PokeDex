@@ -9,7 +9,7 @@ import PokedexNavigation from './PokedexNavigation'
 const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName='PokeDex'>
       <Tab.Screen name="Favorite" component={FavoriteNavigation} options={{
         tabBarLabel: "Favoritos",
         tabBarIcon: ({ color, size }) => (
