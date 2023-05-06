@@ -24,9 +24,6 @@ export default function Favorite(props) {
           setIsFavorite(false)
         }
       })()
-      return () => {
-
-      }
     }, [id, reloadCheck])
     const addFavorite = async () => {
       try {
