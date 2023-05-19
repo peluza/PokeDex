@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views.userView import create_user
+from .views.userView import get_all_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/create', create_user, name='create_user'),
+    path('api/user/getAllUser', get_all_user, name='get_all_user'),
 ]
