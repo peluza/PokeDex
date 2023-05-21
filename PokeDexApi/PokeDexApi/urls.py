@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from .views.userView import create_user
 from .views.userView import get_all_user
+from .views.userView import get_user
+from .views.userView import user_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/create', create_user, name='create_user'),
     path('api/user/getAllUser', get_all_user, name='get_all_user'),
+    path('api/user/getUser/<int:id>/', get_user, name='get_user'),
+    path('api/user/login', user_login , name='login'),
 ]
