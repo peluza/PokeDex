@@ -26,6 +26,8 @@ def create_user(request):
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def get_all_user(request):
+    if request.user.id != 1:
+        return Response({'mensaje': 'Solicitud restringida'}, status=403)
     usuarios = User.objects.all()
     serializer = UsuarioSerializer(usuarios, many=True)
     return Response(serializer.data)
@@ -34,6 +36,8 @@ def get_all_user(request):
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def get_user(request, id):
+    if request.user.id != id:
+        return Response({'mensaje': 'Solicitud restringida'}, status=403)
     try:
         usuario = User.objects.get(id=id)
         serializer = UsuarioSerializer(usuario)
@@ -48,6 +52,7 @@ def user_login(request):
     password = request.data.get('password')
 
     user = authenticate(request, username=username, password=password)
+    
     if user is not None:
         serializer = UsuarioSerializer(user) 
         # csrf_token = get_token(request)
