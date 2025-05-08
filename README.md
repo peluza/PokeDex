@@ -11,37 +11,64 @@ Este proyecto consta de dos partes principales:
 
 ## 📁 Estructura del Proyecto
 
-PokeDex/
-├── PokeDexApi/         # Backend Django
-│   ├── PokeDexApi/     # Directorio principal de la app Django
-│   │   ├── models/
-│   │   │   └── serializers.py
-│   │   ├── views/
-│   │   │   └── userView.py
-│   │   ├── init.py
-│   │   ├── asgi.py
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   └── wsgi.py
-│   ├── db.sqlite3      # Base de datos (SQLite por defecto)
-│   └── manage.py       # Utilidad de comandos de Django
-├── pokedex/            # Frontend React Native (Expo)
-│   ├── src/
-│   │   ├── api/        # Lógica para interactuar con APIs (PokeAPI, AsyncStorage)
-│   │   ├── assets/     # Imágenes, fuentes, etc.
-│   │   ├── components/ # Componentes reutilizables de UI
-│   │   ├── context/    # Contexto de autenticación
-│   │   ├── hooks/      # Hooks personalizados (useAuth)
-│   │   ├── navigation/ # Configuración de la navegación
-│   │   ├── screens/    # Pantallas principales de la app
-│   │   └── utils/      # Constantes, helpers (colores, userDB)
-│   ├── App.js          # Punto de entrada principal de la app Expo
-│   ├── app.json        # Configuración de la app Expo
-│   ├── babel.config.js # Configuración de Babel
-│   ├── eas.json        # Configuración de Expo Application Services (EAS) Build
-│   ├── package.json
-│   └── package-lock.json
-└── README.md 
+    PokeDex/
+        ├── PokeDexApi/
+        │   ├── PokeDexApi/
+        │   │   ├── models/
+        │   │   │   └── serializers.py
+        │   │   ├── views/
+        │   │   │   └── userView.py
+        │   │   ├── __init__.py
+        │   │   ├── asgi.py
+        │   │   ├── settings.py
+        │   │   ├── urls.py
+        │   │   └── wsgi.py
+        │   ├── db.sqlite3
+        │   └── manage.py
+        ├── pokedex/
+        │   ├── src/
+        │   │   ├── api/
+        │   │   ├── assets/
+        │   │   ├── components/
+        │   │   ├── context/
+        │   │   ├── hooks/
+        │   │   ├── navigation/
+        │   │   ├── screens/
+        │   │   └── utils/
+        │   ├── App.js
+        │   ├── app.json
+        │   ├── babel.config.js
+        │   ├── eas.json
+        │   ├── package.json
+        │   └── package-lock.json
+        └── README.md
+
+**Descripción de la Estructura:**
+
+* **`PokeDexApi/`**: Contiene el código del backend hecho con Django.
+    * **`PokeDexApi/PokeDexApi/`**: Directorio principal de la aplicación Django.
+        * `models/serializers.py`: Define cómo se convierten los datos de Python a formatos como JSON para la API (y viceversa).
+        * `views/userView.py`: Contiene la lógica que maneja las peticiones web para los endpoints relacionados con usuarios (crear, login, obtener).
+        * `settings.py`: Archivo principal de configuración de Django (base de datos, apps instaladas, etc.).
+        * `urls.py`: Define las rutas (endpoints) de la API y qué función de `views` las maneja.
+        * `wsgi.py` / `asgi.py`: Configuraciones para el despliegue del servidor web.
+    * `db.sqlite3`: Archivo de la base de datos por defecto (SQLite).
+    * `manage.py`: Utilidad de línea de comandos para tareas de Django (migraciones, correr servidor, etc.).
+* **`pokedex/`**: Contiene el código del frontend hecho con React Native y Expo.
+    * **`src/`**: Directorio principal del código fuente del frontend.
+        * `api/`: Funciones para conectarse a la PokeAPI y manejar el almacenamiento local (AsyncStorage para favoritos).
+        * `assets/`: Recursos estáticos como imágenes (íconos, splash screen) y fuentes.
+        * `components/`: Pequeños bloques reutilizables de interfaz de usuario (ej: `PokemonCard`, `Stats`, `LoginForm`, `Type`).
+        * `context/`: Define y provee el contexto de autenticación (`AuthContext`).
+        * `hooks/`: Hooks personalizados reutilizables (ej: `useAuth`).
+        * `navigation/`: Configuración de la navegación entre pantallas usando React Navigation (Stacks y Tabs).
+        * `screens/`: Componentes que representan las pantallas completas de la aplicación (`PokeDex`, `Pokemon`, `Favorite`, `Account`).
+        * `utils/`: Funciones de utilidad y constantes (ej: colores por tipo de Pokémon, credenciales de usuario temporal `userDB`).
+    * `App.js`: Componente raíz de la aplicación React Native, donde se inicializa la navegación y el `AuthProvider`.
+    * `app.json`: Archivo de configuración de Expo (nombre, versión, íconos, splash screen, etc.).
+    * `babel.config.js`: Configuración de Babel (transformador de JavaScript).
+    * `eas.json`: Configuración para Expo Application Services (usado para construir la app).
+    * `package.json`: Define las dependencias y scripts del proyecto frontend.
 
 ---
 
